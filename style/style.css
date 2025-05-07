@@ -4,10 +4,26 @@
     box-sizing: border-box;
     position: relative;
 }
+
+html {
+    font-size: 10px;
+}
+
 body {
     background-color: grey;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding-left: 100px;
+    background-color: red;
+    color: white;
+    height: 8dvh;
+    width: 100%;
 }
 
 main {
@@ -18,16 +34,16 @@ main {
 }
 
 .pokemon {
-    height: 480px;
-    width: 320px;
+    height: 48rem;
+    width: 32rem;
     background-color: #1e1e1e;
     border-radius: 15px;
-    padding-top: 48px;
-    margin: 16px;
+    padding-top: 4.8rem;
+    margin: 1.6rem;
     .pokeImage {
         img {
-            height: 320px;
-            width: 320px;
+            height: 32rem;
+            width: 32rem;
         }
     }
     .pokeName {
@@ -38,6 +54,66 @@ main {
         }
         h1::first-letter {
             text-transform: capitalize;
+        }
+    }
+}
+#popUpPokemon {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.718);
+    height: 100dvh;
+    width: 100dvw;
+    z-index: 100;
+}
+.popUpInfoPokemon {
+    display: flex;
+    position: fixed;
+    height: 80rem;
+    width: 120rem;
+    background-color: aqua;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    .buttonsForPopUp {
+        display: flex;
+        justify-content: space-around;
+        padding: 2rem 0rem;
+        gap: 4rem;
+        button {
+            border-radius: 10px;
+            height: 5rem;
+            width: 12rem;
+            font-size: 20px;
+        }
+    }
+    .popUpImage {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 50%;
+        img {
+            height: 45rem;
+        }
+        p {
+            display: flex;
+            width: 60%;
+            font-size: 3rem;
+        }
+    }
+    .statsOfthePokemon {
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+        justify-content: center;
+        gap: 4rem;
+        h2 {
+            padding: 0rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 40px;
         }
     }
 }

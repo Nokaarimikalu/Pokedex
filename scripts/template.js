@@ -1,6 +1,6 @@
-function templatePokemonOverlay(pokemon) {
+function templatePokemonOverlay(pokemon, index) {
     return /*html*/ `
-            <div class="pokemon">
+            <div class="pokemon" onclick="showPokemonDetails(${index})">
                 <div class="pokeImage"><img src="${pokemon.sprites.front_default}" alt="" /></div>
                 <div class="pokeName">
                     <h2>#${pokemon.id}</h2>
