@@ -1,0 +1,39 @@
+----------------------------------------
+Grundverständniss von APIs
+----------------------------------------
+
+fetch("URL") = verwendet man um Daten von einen Server abzurufen(eine HTTP-Anfrage zu machen).
+
+-----------------------------------------------------------------------------------------
+//HTTP-Methoden\\
+
+mit GET (was standartmäßig ausgewaehlt ist) => kann man Daten abzurufen
+
+POST => sendet Daten zu dem jeweiligen Server
+
+PUT => ersetzt komplett alles an Daten
+
+PATCH => ersetzt nur teilweise die Daten
+
+DELETE => Löscht Daten
+
+------------------------------------------------------------------------------------------
+
+PROMISE => ist ein Objekt was etwas verspricht wie zum Beispiel:
+
+pending => was bedeutet dass das PROMISE noch auf die Antwort wartet
+
+fulfilled => was bedeutet das es die Daten erfolgreich bekommen hat
+
+rejected => was bedeutet das es ein Fehler gab (wird verwendet wenn was nicht klappt weil man dort als Antwort sowas wie Seite konnte nicht geladen werden als bsp.)
+
+
+SO KANN MAN ASNCHRONE ABLÄUFE WIE API ANTWORTEN KONTROLLIEREN
+
+-------------------------------------------------------------------------------------------
+
+Zu Promise gehoeren auch die Funktionen .then() und .catch()
+
+.then() => wird ausgeführt wenn das Promise erfolgreich war(fulfilled)
+
+.catch() => wird ausgeführt wenn das Promise nicht erfolgreich war (rejected)

@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+body {
+    background-color: grey;
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 80%;
+}
+
+.pokemon {
+    height: 480px;
+    width: 320px;
+    background-color: #1e1e1e;
+    border-radius: 15px;
+    padding-top: 48px;
+    margin: 16px;
+    .pokeImage {
+        img {
+            height: 320px;
+            width: 320px;
+        }
+    }
+    .pokeName {
+        color: whitesmoke;
+        text-align: center;
+        h1 {
+            text-decoration: underline;
+        }
+        h1::first-letter {
+            text-transform: capitalize;
+        }
+    }
+}
