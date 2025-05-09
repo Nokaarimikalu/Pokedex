@@ -7,10 +7,14 @@
 
 html {
     font-size: 10px;
+    font-family: nunito;
 }
-
+@font-face {
+    font-family: "nunito";
+    src: url(/Pokedex/assets/fonts/Nunito-VariableFont_wght.ttf);
+}
 body {
-    background-color: grey;
+    background-color: #a8a8a8;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -18,12 +22,24 @@ body {
 
 header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding-left: 100px;
-    background-color: red;
+    padding: 0 20rem;
+    background-color: #ff1c1c;
     color: white;
     height: 8dvh;
     width: 100%;
+    .headerImage {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+    h1 {
+        font-size: 60px;
+    }
+    img {
+        height: 6dvh;
+    }
 }
 
 main {
@@ -34,6 +50,7 @@ main {
 }
 
 .pokemon {
+    cursor: pointer;
     height: 48rem;
     width: 32rem;
     background-color: #1e1e1e;
@@ -57,6 +74,12 @@ main {
         }
     }
 }
+.pokemon:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
 #popUpPokemon {
     position: fixed;
     top: 0;
@@ -97,12 +120,13 @@ main {
         img {
             height: 45rem;
         }
-        p {
-            display: flex;
-            width: 60%;
-            font-size: 3rem;
-        }
     }
+
+    .ability {
+        font-size: 3rem;
+        width: 60%;
+    }
+
     .statsOfthePokemon {
         display: flex;
         width: 50%;
@@ -115,5 +139,18 @@ main {
             justify-content: space-between;
             font-size: 40px;
         }
+    }
+}
+
+.loadingPokemon {
+    display: flex;
+    align-items: center;
+    height: 20dvh;
+    button {
+        cursor: pointer;
+        font-size: 32px;
+        border-radius: 15px;
+        height: 8rem;
+        width: 20rem;
     }
 }
