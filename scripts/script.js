@@ -1,4 +1,12 @@
 let allPokemonData = [];
+const maxStats = {
+    hp: 255,
+    attack: 190,
+    defense: 230,
+    "special-attack": 194,
+    "special-defense": 230,
+    speed: 180,
+};
 
 async function init() {
     await getData();
@@ -8,9 +16,9 @@ async function init() {
 console.log(allPokemonData);
 
 async function getData() {
-    let url = `https://pokeapi.co/api/v2/pokemon?limit=40&offset=${allPokemonData.length}`;
-    let response = await fetch(url);
-    let currentRequest = await response.json();
+    const url = `https://pokeapi.co/api/v2/pokemon?limit=40&offset=${allPokemonData.length}`;
+    const response = await fetch(url);
+    const currentRequest = await response.json();
     for (let i = 0; i < currentRequest.results.length; i++) {
         let p = currentRequest.results[i];
         let res = await fetch(p.url);
@@ -36,23 +44,35 @@ function allDataForTemplate() {
 function showPokemonDetails(indexOfPokemon) {
     let pokemon = allPokemonData[indexOfPokemon];
     let popUpArea = document.querySelector(`#popUpSection`);
+    document.body.classList.add("no-scroll");
     popUpArea.innerHTML = "";
     popUpArea.innerHTML = templatePopUp(pokemon, indexOfPokemon);
-    pokemonStats(pokemon);
+    let type = pokemon.types[0].type.name;
+    pokemonStats(pokemon, type);
     pokemonAbility(pokemon);
     pokemonType(pokemon);
 }
 
 function closePopUp() {
     document.getElementById("popUpPokemon").classList.add("d_hidden");
+    document.body.classList.remove("no-scroll");
 }
 
-function pokemonStats(pokemon) {
+function pokemonStats(pokemon, type) {
     let pokemonStats = document.querySelector(`#pkmStats`);
     for (let i = 0; i < pokemon.stats.length; i++) {
         const attribute = pokemon.stats[i];
+        const statName = attribute.stat.name;
+        const baseStat = attribute.base_stat;
+        const percent = (baseStat / maxStats[statName]) * 100;
         pokemonStats.innerHTML += /*html*/ `
-            <h2><b>${attribute.stat.name.charAt(0).toUpperCase() + attribute.stat.name.slice(1)}:</b>${attribute.base_stat}</h2>
+            <div class="pokemonStats">
+                <h2><b>${attribute.stat.name.charAt(0).toUpperCase() + attribute.stat.name.slice(1)}:</b>${attribute.base_stat}</h2>
+                <div class="statBar">
+                    <div class="statBarStats type-${type}"style="width: ${percent}%"></div>
+                </div>
+            </div>
+            
         `;
     }
 }
