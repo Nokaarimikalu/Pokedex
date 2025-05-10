@@ -10,6 +10,62 @@
 }
 
 .type-normal {
+    background: linear-gradient(to right, #a8a878, #d3d3a2);
+}
+.type-fire {
+    background: linear-gradient(to right, #f08030, #f8b85c);
+}
+.type-water {
+    background: linear-gradient(to right, #6890f0, #86b9f8);
+}
+.type-electric {
+    background: linear-gradient(to right, #f8d030, #ffe25c);
+}
+.type-grass {
+    background: linear-gradient(to right, #78c850, #a8e860);
+}
+.type-ice {
+    background: linear-gradient(to right, #98d8d8, #c0f0f0);
+}
+.type-fighting {
+    background: linear-gradient(to right, #c03028, #e05c4c);
+}
+.type-poison {
+    background: linear-gradient(to right, #a040a0, #c880c0);
+}
+.type-ground {
+    background: linear-gradient(to right, #e0c068, #f8d880);
+}
+.type-flying {
+    background: linear-gradient(to right, #a890f0, #c0b8f8);
+}
+.type-psychic {
+    background: linear-gradient(to right, #f85888, #ff9ab0);
+}
+.type-bug {
+    background: linear-gradient(to right, #a8b820, #c8d850);
+}
+.type-rock {
+    background: linear-gradient(to right, #b8a038, #d0c070);
+}
+.type-ghost {
+    background: linear-gradient(to right, #705898, #a080c0);
+}
+.type-dragon {
+    background: linear-gradient(to right, #7038f8, #a080f8);
+}
+.type-dark {
+    background: linear-gradient(to right, #705848, #a09080);
+}
+.type-steel {
+    background: linear-gradient(to right, #b8b8d0, #d8d8e8);
+}
+.type-fairy {
+    background: linear-gradient(to right, #ee99ac, #ffc9d9);
+}
+
+/* 
+.type-normal {
     background-color: #a8a878;
 }
 .type-fire {
@@ -62,7 +118,7 @@
 }
 .type-fairy {
     background-color: #ee99ac;
-}
+} */
 
 .d_hidden {
     display: none;
