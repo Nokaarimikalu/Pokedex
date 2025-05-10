@@ -24,6 +24,12 @@ function allDataForTemplate() {
     for (let i = 0; i < allPokemonData.length; i++) {
         const element = allPokemonData[i];
         mainArea.innerHTML += templatePokemonOverlay(element);
+        const container = document.getElementById(`element-${element.id}`);
+        for (let j = 0; j < element.types.length; j++) {
+            const type = element.types[j].type.name;
+            const types = type.charAt(0).toUpperCase() + type.slice(1);
+            container.innerHTML += `<div class="typeForAll type-${type}">${types}</div>`;
+        }
     }
 }
 
@@ -90,21 +96,30 @@ function prevPokemon(currentIndex) {
     }
 }
 
+function renderPokemonTypesForOverlay(pokemon) {
+    const container = document.getElementById(`element-${pokemon.id}`);
+    for (let j = 0; j < pokemon.types.length; j++) {
+        const type = pokemon.types[j].type.name;
+        const types = type.charAt(0).toUpperCase() + type.slice(1);
+        container.innerHTML += `<div class="typeForAll type-${type}">${types}</div>`;
+    }
+}
+
 async function loadMorePokemon(button) {
-    const text = button.querySelector(".btn-text");
     const loading = button.querySelector(".pokeball-loader");
-    text.textContent = "Loading...";
     loading.style.display = "inline-block";
     button.disabled = true;
     const oldLength = allPokemonData.length;
     try {
         await getData();
-        let m = document.querySelector(".test");
-        for (let i = oldLength; i < allPokemonData.length; i++) m.innerHTML += templatePokemonOverlay(allPokemonData[i]);
+        let mainArea = document.querySelector(".test");
+        for (let i = oldLength; i < allPokemonData.length; i++) {
+            mainArea.innerHTML += templatePokemonOverlay(allPokemonData[i]);
+            renderPokemonTypesForOverlay(allPokemonData[i]);
+        }
     } catch (error) {
         console.error("Fehler:", error);
     }
-    text.textContent = "Next";
     loading.style.display = "none";
     button.disabled = false;
 }
@@ -118,7 +133,6 @@ function searchPokemon(info) {
         return;
     } else {
         const filteredPokemon = allPokemonData.filter((pokemon) => pokemon.name.toLowerCase().includes(info.toLowerCase()));
-
         filteredPokemon.forEach((pokemon) => {
             mainArea.innerHTML += templatePokemonOverlay(pokemon);
         });

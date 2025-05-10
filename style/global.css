@@ -63,6 +63,60 @@
 .type-fairy {
     background: linear-gradient(to right, #ee99ac, #ffc9d9);
 }
+.type-normal:hover {
+    box-shadow: 0 0 20px #a8a878;
+}
+.type-fire:hover {
+    box-shadow: 0 0 20px #f08030;
+}
+.type-water:hover {
+    box-shadow: 0 0 20px #6890f0;
+}
+.type-electric:hover {
+    box-shadow: 0 0 20px #f8d030;
+}
+.type-grass:hover {
+    box-shadow: 0 0 20px #78c850;
+}
+.type-ice:hover {
+    box-shadow: 0 0 20px #98d8d8;
+}
+.type-fighting:hover {
+    box-shadow: 0 0 20px #c03028;
+}
+.type-poison:hover {
+    box-shadow: 0 0 20px #a040a0;
+}
+.type-ground:hover {
+    box-shadow: 0 0 20px #e0c068;
+}
+.type-flying:hover {
+    box-shadow: 0 0 20px #a890f0;
+}
+.type-psychic:hover {
+    box-shadow: 0 0 20px #f85888;
+}
+.type-bug:hover {
+    box-shadow: 0 0 20px #a8b820;
+}
+.type-rock:hover {
+    box-shadow: 0 0 20px #b8a038;
+}
+.type-ghost:hover {
+    box-shadow: 0 0 20px #705898;
+}
+.type-dragon:hover {
+    box-shadow: 0 0 20px #7038f8;
+}
+.type-dark:hover {
+    box-shadow: 0 0 20px #705848;
+}
+.type-steel:hover {
+    box-shadow: 0 0 20px #b8b8d0;
+}
+.type-fairy:hover {
+    box-shadow: 0 0 20px #ee99ac;
+}
 
 /* 
 .type-normal {
