@@ -18,9 +18,9 @@ function templatePopUp(currentPokemon, index) {
                 <div class="popUpInfoPokemon " onclick="event.stopPropagation()">
                     <div class="popUpImage">
                         <div class="imageOfPokemonPopUp type-${currentPokemon.types[0].type.name}">
+                            <h2 class="idOfPokemonPopUp">#${currentPokemon.id}</h2>
+                            <h1 class="nameOfPokemonPopUp">${currentPokemon.name}</h1>
                             <img src="${currentPokemon.sprites.front_default}" alt="" />
-                                <h2 class="idOfPokemonPopUp">#${currentPokemon.id}</h2>
-                                <h1 class="nameOfPokemonPopUp">${currentPokemon.name}</h1>
                         </div>
                         <div class="pokemonInfoPopUp">
                             <div class="elemente"></div>

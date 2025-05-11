@@ -13,8 +13,6 @@ async function init() {
     allDataForTemplate();
 }
 
-console.log(allPokemonData);
-
 async function getData() {
     const url = `https://pokeapi.co/api/v2/pokemon?limit=40&offset=${allPokemonData.length}`;
     const response = await fetch(url);
@@ -72,7 +70,6 @@ function pokemonStats(pokemon, type) {
                     <div class="statBarStats type-${type}"style="width: ${percent}%"></div>
                 </div>
             </div>
-            
         `;
     }
 }
@@ -82,7 +79,6 @@ function pokemonAbility(pokemon) {
     for (let i = 0; i < pokemon.abilities.length; i++) {
         const ability = pokemon.abilities[i];
         const name = ability.ability.name.charAt(0).toUpperCase() + ability.ability.name.slice(1);
-
         if (ability.is_hidden) {
             pokemonAbility.innerHTML += `<p><b>Hidden Ability:</b> ${name}</p>`;
         } else {
@@ -103,16 +99,14 @@ function pokemonType(pokemon) {
 }
 
 function nextPokemon(currentIndex) {
-    let newIndex = currentIndex + 1;
-    if (newIndex < allPokemonData.length) {
-        showPokemonDetails(newIndex);
+    if (currentIndex + 1 < allPokemonData.length) {
+        showPokemonDetails(currentIndex + 1);
     }
 }
 
 function prevPokemon(currentIndex) {
-    let newIndex = currentIndex - 1;
-    if (newIndex >= 0) {
-        showPokemonDetails(newIndex);
+    if (currentIndex - 1 >= 0) {
+        showPokemonDetails(currentIndex - 1);
     }
 }
 
@@ -146,15 +140,20 @@ async function loadMorePokemon(button) {
 
 function searchPokemon(info) {
     let mainArea = document.querySelector(`.test`);
+    const loadButton = document.querySelector(".loadingPokemon");
     mainArea.innerHTML = "";
     if (info.length === 0) {
         allDataForTemplate();
+        loadButton.style.display = "block";
     } else if (info.length < 3) {
+        loadButton.style.display = "none";
         return;
     } else {
         const filteredPokemon = allPokemonData.filter((pokemon) => pokemon.name.toLowerCase().includes(info.toLowerCase()));
         filteredPokemon.forEach((pokemon) => {
             mainArea.innerHTML += templatePokemonOverlay(pokemon);
+            renderPokemonTypesForOverlay(pokemon);
         });
+        loadButton.style.display = "none";
     }
 }
