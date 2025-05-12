@@ -58,6 +58,10 @@ function closePopUp() {
 
 function pokemonStats(pokemon, type) {
     let pokemonStats = document.querySelector(`#pkmStats`);
+    stats(pokemon, type, pokemonStats);
+}
+
+function stats(pokemon, type, pokemonStats) {
     for (let i = 0; i < pokemon.stats.length; i++) {
         const attribute = pokemon.stats[i];
         const statName = attribute.stat.name;
@@ -69,8 +73,7 @@ function pokemonStats(pokemon, type) {
                 <div class="statBar">
                     <div class="statBarStats type-${type}"style="width: ${percent}%"></div>
                 </div>
-            </div>
-        `;
+            </div>`;
     }
 }
 
@@ -124,15 +127,11 @@ async function loadMorePokemon(button) {
     loading.style.display = "inline-block";
     button.disabled = true;
     const oldLength = allPokemonData.length;
-    try {
-        await getData();
-        let mainArea = document.querySelector(".test");
-        for (let i = oldLength; i < allPokemonData.length; i++) {
-            mainArea.innerHTML += templatePokemonOverlay(allPokemonData[i]);
-            renderPokemonTypesForOverlay(allPokemonData[i]);
-        }
-    } catch (error) {
-        console.error("Fehler:", error);
+    await getData();
+    let mainArea = document.querySelector(".test");
+    for (let i = oldLength; i < allPokemonData.length; i++) {
+        mainArea.innerHTML += templatePokemonOverlay(allPokemonData[i]);
+        renderPokemonTypesForOverlay(allPokemonData[i]);
     }
     loading.style.display = "none";
     button.disabled = false;
@@ -142,6 +141,10 @@ function searchPokemon(info) {
     let mainArea = document.querySelector(`.test`);
     const loadButton = document.querySelector(".loadingPokemon");
     mainArea.innerHTML = "";
+    searchForPokemon(info, loadButton, mainArea);
+}
+
+function searchForPokemon(info, loadButton, mainArea) {
     if (info.length === 0) {
         allDataForTemplate();
         loadButton.style.display = "block";

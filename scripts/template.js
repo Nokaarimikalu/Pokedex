@@ -19,7 +19,7 @@ function templatePopUp(currentPokemon, index) {
                     <div class="popUpImage">
                         <div class="imageOfPokemonPopUp type-${currentPokemon.types[0].type.name}">
                             <h2 class="idOfPokemonPopUp">#${currentPokemon.id}</h2>
-                            <h1 class="nameOfPokemonPopUp">${currentPokemon.name}</h1>
+                            <h1 class="nameOfPokemonPopUp">${currentPokemon.name.charAt(0).toUpperCase() + currentPokemon.name.slice(1)}</h1>
                             <img src="${currentPokemon.sprites.front_default}" alt="" />
                         </div>
                         <div class="pokemonInfoPopUp">
@@ -38,5 +38,3 @@ function templatePopUp(currentPokemon, index) {
             </div>
     `;
 }
-
-// currentPokemon.sprites.other["official-artwork"].front_default
